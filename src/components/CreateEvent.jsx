@@ -58,6 +58,7 @@ export const CreateEvent = () => {
           ))}
         </select>
       </label>
+      <button type="submit">Add event</button>
     </Form>
   );
 };
