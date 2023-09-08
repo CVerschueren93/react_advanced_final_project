@@ -5,6 +5,11 @@ import { EventPage } from "./pages/EventPage";
 import { EventsPage, loader as postListLoader } from "./pages/EventsPage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Root } from "./components/Root";
+import {
+  CreateEvent,
+  action as createEventAction,
+  loader as createEventLoader,
+} from "./components/CreateEvent";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +26,12 @@ const router = createBrowserRouter([
         element: <EventPage />,
         // loader: postLoader,
         // action: addComment,
+      },
+      {
+        path: "/create-event",
+        element: <CreateEvent />,
+        loader: createEventLoader,
+        action: createEventAction,
       },
     ],
   },
