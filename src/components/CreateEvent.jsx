@@ -1,6 +1,15 @@
-import { Form } from "react-router-dom";
+import { Form, useLoaderData } from "react-router-dom";
+
+export const loader = async () => {
+  const users = await fetch("http://localhost:3000/users");
+  return {
+    users: await users.json(),
+  };
+};
 
 export const CreateEvent = () => {
+  const { users } = useLoaderData();
+
   return (
     <Form method="post">
       <label>
@@ -38,6 +47,16 @@ export const CreateEvent = () => {
       <label>
         <span>End Time</span>
         <input type="text" name="end-time" placeholder="End Time" />
+      </label>
+      <label>
+        <span>User</span>
+        <select name="userId">
+          {users.map((user) => (
+            <option key={user.id} value={user.id}>
+              {user.name}
+            </option>
+          ))}
+        </select>
       </label>
     </Form>
   );
