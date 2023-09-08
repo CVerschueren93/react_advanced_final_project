@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 import { useLoaderData } from "react-router-dom";
 
 export const loader = async () => {
@@ -16,20 +16,22 @@ export const EventsPage = () => {
       <h1>List of events</h1>
       <ul>
         {events.map((event) => (
-          <div key={event.id}>
-            <img src={event.image} />
-            <h2>{event.title}</h2>
-            <p>{event.description}</p>
-            <p>Start time: {event.startTime}</p>
-            <p>End time: {event.endTime}</p>
-            <p>
-              Categories:
-              {
-                categories.find((category) =>
-                  event.categoryIds.includes(category.id)
-                ).name
-              }
-            </p>
+          <div key={event.id} className="event">
+            <Link to={`event/${event.id}`}>
+              <img src={event.image} />
+              <h2>{event.title}</h2>
+              <p>{event.description}</p>
+              <p>Start time: {event.startTime}</p>
+              <p>End time: {event.endTime}</p>
+              <p>
+                Categories:
+                {
+                  categories.find((category) =>
+                    event.categoryIds.includes(category.id)
+                  ).name
+                }
+              </p>
+            </Link>
           </div>
         ))}
       </ul>
