@@ -1,5 +1,4 @@
 import React from "react";
-import { Heading } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { useState } from "react";
 
@@ -17,10 +16,16 @@ export const EventsPage = () => {
 
   return (
     <div className="events-list">
-      <Heading>List of events</Heading>
+      <h1>List of events</h1>
       <ul>
         {eventsList.map((event) => (
-          <li key={event.id}>{event.title}</li>
+          <div key={event.id}>
+            <img src={event.image} />
+            <h2>{event.title}</h2>
+            <p>{event.description}</p>
+            <p>Start time: {event.startTime}</p>
+            <p>End time: {event.endTime}</p>
+          </div>
         ))}
       </ul>
     </div>
