@@ -5,11 +5,6 @@ import { EventPage } from "./pages/EventPage";
 import { EventsPage, loader as eventsListLoader } from "./pages/EventsPage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Root } from "./components/Root";
-import {
-  CreateEvent,
-  action as createEventAction,
-  loader as createEventLoader,
-} from "./components/CreateEvent";
 
 const router = createBrowserRouter([
   {
