@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useLoaderData } from "react-router-dom";
-import { AddEventButton } from "../components/AddEventbutton";
 
 export const loader = async () => {
   const events = await fetch("http://localhost:3000/events");
@@ -14,7 +13,7 @@ export const EventsPage = () => {
   const { events, categories } = useLoaderData();
   return (
     <div className="events-list">
-      <AddEventButton />;<h1>List of events</h1>
+      ;<h1>List of events</h1>
       <ul>
         {events.map((event) => (
           <div key={event.id} className="event">
