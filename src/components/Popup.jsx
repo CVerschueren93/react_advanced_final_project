@@ -1,5 +1,6 @@
 import React from "react";
 import "./Popup.css";
+import { CreateEventForm } from "./CreateEventForm";
 
 export function Popup(props) {
   return props.trigger ? (
@@ -12,6 +13,7 @@ export function Popup(props) {
           Close
         </button>
         {props.children}
+        <CreateEventForm />
       </div>
     </div>
   ) : (
