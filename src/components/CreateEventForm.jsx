@@ -68,6 +68,7 @@ export const CreateEventForm = () => {
       },
     };
 
+    //is this fetch method ok?
     fetch("http://localhost:3000/events", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
