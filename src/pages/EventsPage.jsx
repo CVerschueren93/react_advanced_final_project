@@ -33,9 +33,13 @@ export const EventsPage = () => {
               <p>End time: {event.endTime}</p>
               <p>
                 Categories:
-                {categories.filter((category) =>
-                  event.categoryIds.includes(category.id) ? category.name : ""
-                )}
+                {categories
+                  .filter((category) =>
+                    event.categoryIds?.includes(category.id)
+                      ? category.name
+                      : ""
+                  )
+                  .map((category) => " " + category.name + " ")}
               </p>
             </Link>
           </div>
