@@ -3,69 +3,47 @@ import { useState } from "react";
 import { Form } from "react";
 
 export const CreateEventForm = () => {
-  const [eventTitle, setEventTitle] = useState("");
-  const [eventDescription, setEventDescription] = useState("");
-  const [eventImage, setEventImage] = useState("");
-  const [eventLocation, setEventLocation] = useState("");
-  const [eventStartTime, setEventStartTime] = useState("");
-  const [eventEndTime, setEventEndTime] = useState("");
+  const handleChange = (key, event) =>  
+  setEventObject({...eventObject, key:event.target.value});
+};
+  const [eventObject, setEventObject] = useState({
+    title: '',
+    description: '',
+    image: '',
+    categoryIds: {
+      sports: 1,
+      games: 2,
+      relaxation: 3,
+    },
+    location: '',
+    startTime: '',
+    endTime:'',
+    createdBy: {
+      IgnacioDoe: 1,
+      JaneBennett: 2,
+    }
 
-  //checkboxes - how should I use state handler here?
-  const [eventCategories, setEventCategories] = useState(false);
+  });
 
-  //radiobuttons - how should I use state handler here?
-  const [eventUser, setEventUser] = useState(false);
-
-  const handleTitleChange = (event) => {
-    setEventTitle(event.target.value);
-  };
-
-  const handleDescriptionChange = (event) => {
-    setEventDescription(event.target.value);
-  };
-
-  const handleImageChange = (event) => {
-    setEventImage(event.target.value);
-  };
-
-  const handleCategoriesChange = (event) => {
-    setEventCategories(event.target.value);
-  };
-
-  const handleLocationChange = (event) => {
-    setEventLocation(event.target.value);
-  };
-
-  const handleStartTimeChange = (event) => {
-    setEventStartTime(event.target.value);
-  };
-
-  const handleEndTimeChange = (event) => {
-    setEventEndTime(event.target.value);
-  };
-
-  const handleUserChange = (event) => {
-    setEventUser(event.target.value);
-  };
-
+  
   const handleSubmit = (event) => {
     event.preventDefault();
     const newEvent = {
-      eventTitle,
-      eventDescription,
-      eventImage,
-      eventCategories: {
-        sports: false,
-        games: false,
-        relaxation: false,
-      },
-      eventLocation,
-      eventStartTime,
-      eventEndTime,
-      eventUser: {
-        IgnacioDoe: false,
-        JaneBennett: false,
-      },
+      title,
+      description,
+      image,
+      categoryIds,//// {
+       // sports: ,
+      //  games: ,
+       // relaxation: ,
+     // },
+      location,
+      startTime,
+      endTime,
+      createdBy,// {
+       // IgnacioDoe: 1,
+       // JaneBennett: 2,
+      //},
     };
 
     //is this fetch method ok?
@@ -84,8 +62,8 @@ export const CreateEventForm = () => {
               type="text"
               name="title"
               placeholder="Title"
-              value={eventTitle}
-              onChange={handleTitleChange}
+              value={newEvent.title}
+              onChange={handleChange}
             />
           </label>
           <label>
@@ -93,8 +71,8 @@ export const CreateEventForm = () => {
             <textarea
               name="description"
               placeholder="Desription"
-              value={eventDescription}
-              onChange={handleDescriptionChange}
+              value={newEvent.description}
+              onChange={handleChange}
             />
           </label>
           <label>
@@ -103,8 +81,8 @@ export const CreateEventForm = () => {
               type="text"
               name="url"
               placeholder="ImageURL"
-              value={eventImage}
-              onChange={handleImageChange}
+              value={newEvent.image}
+              onChange={handleChange}
             />
           </label>
           <h2>Categories</h2>
@@ -112,29 +90,29 @@ export const CreateEventForm = () => {
             type="checkbox"
             id="sports"
             name="sports"
-            value={eventCategories.sports}
-            // checked={state.categories.sports}
-            // onChange={handleChange}
+            value={1}
+            onChange={(e) => handleChange([...categoryIds, e.target.value])}
+            
           />
           <label htmlFor="sports">Sports</label>
           <input
             type="checkbox"
             id="games"
             name="games"
-            value={eventCategories.games}
-            //checked={state.categories.games}
-            // onChange={handleChange}
-            //onChange={(e) => setEventCategories(e.target.value)}
+            value={2}
+            onChange={(e) =>
+            handleChange([...categoryIds, e.target.value])
+            }
+           
           />
           <label htmlFor="games">Games</label>
           <input
             type="checkbox"
             id="relaxation"
             name="relaxation"
-            value={eventCategories.relaxation}
-            //checked={state.categories.relaxation}
-            // onChange={handleChange}
-            // onChange={(e) => setEventCategories(e.target.value)}
+            value={3}
+            onChange={(e)=> handleChange([...categoryIds, e.target.value])}
+            
           />
           <label htmlFor="relaxation">Relaxation</label>
           <label>
@@ -143,8 +121,8 @@ export const CreateEventForm = () => {
               type="text"
               name="location"
               placeholder="Location"
-              value={eventLocation}
-              onChange={handleLocationChange}
+              value={newEvent.location}
+              onChange={handleChange}
             />
           </label>
           <label>
@@ -153,8 +131,8 @@ export const CreateEventForm = () => {
               type="text"
               name="startTime"
               placeholder="Start Time"
-              value={eventStartTime}
-              onChange={handleStartTimeChange}
+              value={newEvent.startTime}
+              onChange={handleChange}
             />
           </label>
           <label>
@@ -163,30 +141,25 @@ export const CreateEventForm = () => {
               type="text"
               name="endTime"
               placeholder="End Time"
-              value={eventEndTime}
-              onChange={handleEndTimeChange}
+              value={newEvent.endTime}
+              onChange={handleChange}
             />
           </label>
           <label>
             <h2>User</h2>
             <input
               type="radio"
-              name="IgnacioDoe"
-              value={eventUser.IgnacioDoe}
-              // onChange={handleUserChange}
-              //checked={state.user === "Ignacio Doe"}
+              name="Ignacio Doe"
+              value={1}
+              onChange={(e)=> handleChange([...createdBy, e.target.value])}
 
-              //onChange={(e) => setEventUser(e.target.value)}
             />{" "}
             Ignacio Doe
             <input
               type="radio"
-              name="JaneBennett"
-              value={eventUser.JaneBennett}
-              // onChange={handleUserChange}
-              //checked={state.user === "Jane Bennett"}
-
-              //onChange={(e) => setEventUser(e.target.value)}
+              name="Jane Bennett"
+              value={2}
+              onChange={(e)=> handleChange([...createdBy, e.target.value])}
             />{" "}
             Jane Bennett
           </label>
