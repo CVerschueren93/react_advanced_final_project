@@ -14,7 +14,7 @@ export const CreateEventForm = () => {
     location: "",
     startTime: "",
     endTime: "",
-    createdBy: {},
+    createdBy: "",
   });
 
   const handleSubmit = () => {
@@ -123,18 +123,14 @@ export const CreateEventForm = () => {
             type="radio"
             name="Ignacio Doe"
             value={1}
-            onChange={(e) =>
-              handleChange([...eventObject.createdBy, e.target.value])
-            }
+            onChange={(e) => handleChange("createdBy", e.target.value)}
           />{" "}
           Ignacio Doe
           <input
             type="radio"
             name="Jane Bennett"
             value={2}
-            onChange={(e) =>
-              handleChange([...eventObject.createdBy, e.target.value])
-            }
+            onChange={(e) => handleChange("createdBy", e.target.value)}
           />{" "}
           Jane Bennett
         </label>
