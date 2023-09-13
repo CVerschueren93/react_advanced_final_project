@@ -3,8 +3,8 @@ import { useState } from "react";
 import { Form } from "react-router-dom";
 
 export const CreateEventForm = () => {
-  const handleChange = (key, event) =>
-    setEventObject({ ...eventObject, [key]: event.target.value });
+  const handleChange = (key, value) =>
+    setEventObject({ ...eventObject, [key]: value });
 
   const [eventObject, setEventObject] = useState({
     title: "",
@@ -14,30 +14,16 @@ export const CreateEventForm = () => {
     location: "",
     startTime: "",
     endTime: "",
-    createdBy: {},
+    createdBy: [{}],
   });
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const eventObject = {
-      title,
-      description,
-      image,
-      categoryIds,
-      location,
-      startTime,
-      endTime,
-      createdBy,
-    };
+  const handleSubmit = () => {
+    fetch("http://localhost:3000/events", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(eventObject),
+    });
   };
-
-  //is this fetch method ok?
-  fetch("http://localhost:3000/events", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(eventObject),
-  });
-
   return (
     <div className="new-event">
       <Form method="post" onSubmit={handleSubmit}>
@@ -48,7 +34,7 @@ export const CreateEventForm = () => {
             name="title"
             placeholder="Title"
             value={eventObject.title}
-            onChange={handleChange}
+            onChange={(e) => handleChange("title", e.target.value)}
           />
         </label>
         <label>
@@ -57,17 +43,17 @@ export const CreateEventForm = () => {
             name="description"
             placeholder="Desription"
             value={eventObject.description}
-            onChange={handleChange}
+            onChange={(e) => handleChange("description", e.target.value)}
           />
         </label>
         <label>
           <h2>Image</h2>
           <input
             type="text"
-            name="url"
+            name="image"
             placeholder="ImageURL"
             value={eventObject.image}
-            onChange={handleChange}
+            onChange={(e) => handleChange("image", e.target.value)}
           />
         </label>
         <h2>Categories</h2>
@@ -108,7 +94,7 @@ export const CreateEventForm = () => {
             name="location"
             placeholder="Location"
             value={eventObject.location}
-            onChange={handleChange}
+            onChange={(e) => handleChange("location", e.target.value)}
           />
         </label>
         <label>
@@ -118,7 +104,7 @@ export const CreateEventForm = () => {
             name="startTime"
             placeholder="Start Time"
             value={eventObject.startTime}
-            onChange={handleChange}
+            onChange={(e) => handleChange("startTime", e.target.value)}
           />
         </label>
         <label>
@@ -128,7 +114,7 @@ export const CreateEventForm = () => {
             name="endTime"
             placeholder="End Time"
             value={eventObject.endTime}
-            onChange={handleChange}
+            onChange={(e) => handleChange("endTime", e.target.value)}
           />
         </label>
         <label>
