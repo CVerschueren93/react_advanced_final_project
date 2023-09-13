@@ -14,7 +14,7 @@ export const CreateEventForm = () => {
     location: "",
     startTime: "",
     endTime: "",
-    createdBy: [{}],
+    createdBy: {},
   });
 
   const handleSubmit = () => {
