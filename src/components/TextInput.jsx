@@ -1,3 +1,3 @@
-export const TextInput = ({ changeFn }) => {
-  return <input className="TextInput" onChange={changeFn}></input>;
+export const TextInput = ({ changeFn, key }) => {
+  return <input className="TextInput" onChange={changeFn} key={key}></input>;
 };
