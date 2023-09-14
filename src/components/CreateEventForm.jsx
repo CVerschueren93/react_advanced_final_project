@@ -26,7 +26,7 @@ export const CreateEventForm = () => {
   };
   return (
     <div className="new-event">
-      <Form method="post" onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit}>
         <label>
           <h2>Title</h2>
           <input
