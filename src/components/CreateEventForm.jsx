@@ -1,10 +1,27 @@
 import React from "react";
 import { useState } from "react";
 import { Form } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const CreateEventForm = () => {
   const handleChange = (key, value) =>
     setEventObject({ ...eventObject, [key]: value });
+
+  const handleCategoryChange = (newEvent) => {
+    if (eventObject.categoryIds.includes(newEvent.categoryIds)) {
+      return eventObject.categoryIds !== newEvent.categoryIds;
+    } else {
+      return eventObject.categoryIds.push(newEvent.categoryIds);
+    }
+  };
+
+  const handleCreatedByChange = (newEvent) => {
+    if (eventObject.createdBy.includes(newEvent.createdBy)) {
+      return eventObject.createdBy !== newEvent.createdBy;
+    } else {
+      return eventObject.createdBy.push(newEvent.createdBy);
+    }
+  };
 
   const [eventObject, setEventObject] = useState({
     title: "",
@@ -18,12 +35,19 @@ export const CreateEventForm = () => {
   });
 
   const handleSubmit = () => {
-    fetch("http://localhost:3000/events", {
+     fetch("http://localhost:3000/events", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(eventObject),
-    });
-  };
+    })
+    //.then
+     if (response.ok) {
+     // useNavigate("/events");
+     //}
+     }
+  
+
+
   return (
     <div className="new-event">
       <Form onSubmit={handleSubmit}>
@@ -63,7 +87,7 @@ export const CreateEventForm = () => {
           name="sports"
           value={1}
           onChange={(e) =>
-            handleChange([...eventObject.categoryIds, e.target.value])
+            handleCategoryChange([...eventObject.categoryIds, e.target.value])
           }
         />
         <label htmlFor="sports">Sports</label>
@@ -73,7 +97,7 @@ export const CreateEventForm = () => {
           name="games"
           value={2}
           onChange={(e) =>
-            handleChange([...eventObject.categoryIds, e.target.value])
+            handleCategoryChange([...eventObject.categoryIds, e.target.value])
           }
         />
         <label htmlFor="games">Games</label>
@@ -83,7 +107,7 @@ export const CreateEventForm = () => {
           name="relaxation"
           value={3}
           onChange={(e) =>
-            handleChange([...eventObject.categoryIds, e.target.value])
+            handleCategoryChange([...eventObject.categoryIds, e.target.value])
           }
         />
         <label htmlFor="relaxation">Relaxation</label>
@@ -123,14 +147,14 @@ export const CreateEventForm = () => {
             type="radio"
             name="Ignacio Doe"
             value={1}
-            onChange={(e) => handleChange("createdBy", e.target.value)}
+            onChange={(e) => handleCreatedByChange("createdBy", e.target.value)}
           />{" "}
           Ignacio Doe
           <input
             type="radio"
             name="Jane Bennett"
             value={2}
-            onChange={(e) => handleChange("createdBy", e.target.value)}
+            onChange={(e) => handleCreatedByChange("createdBy", e.target.value)}
           />{" "}
           Jane Bennett
         </label>
