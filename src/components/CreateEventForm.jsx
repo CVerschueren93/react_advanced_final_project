@@ -7,19 +7,11 @@ export const CreateEventForm = () => {
   const handleChange = (key, value) =>
     setEventObject({ ...eventObject, [key]: value });
 
-  const handleCategoryChange = (newEvent) => {
-    if (eventObject.categoryIds.includes(newEvent.categoryIds)) {
-      return eventObject.categoryIds !== newEvent.categoryIds;
+  const handleCategoryChange = (id) => {
+    if (eventObject.categoryIds.includes(id)) {
+      setEventObject ?? eventObject.categoryIds;
     } else {
-      return eventObject.categoryIds.push(newEvent.categoryIds);
-    }
-  };
-
-  const handleCreatedByChange = (newEvent) => {
-    if (eventObject.createdBy.includes(newEvent.createdBy)) {
-      return eventObject.createdBy !== newEvent.createdBy;
-    } else {
-      return eventObject.createdBy.push(newEvent.createdBy);
+      setEventObject ?? eventObject.categoryIds.push(id);
     }
   };
 
@@ -84,9 +76,7 @@ export const CreateEventForm = () => {
           id="sports"
           name="sports"
           value={1}
-          onChange={(e) =>
-            handleCategoryChange([...eventObject.categoryIds, e.target.value])
-          }
+          onChange={(e) => handleCategoryChange(e.target.value)}
         />
         <label htmlFor="sports">Sports</label>
         <input
@@ -94,9 +84,7 @@ export const CreateEventForm = () => {
           id="games"
           name="games"
           value={2}
-          onChange={(e) =>
-            handleCategoryChange([...eventObject.categoryIds, e.target.value])
-          }
+          onChange={(e) => handleCategoryChange(e.target.value)}
         />
         <label htmlFor="games">Games</label>
         <input
@@ -104,9 +92,7 @@ export const CreateEventForm = () => {
           id="relaxation"
           name="relaxation"
           value={3}
-          onChange={(e) =>
-            handleCategoryChange([...eventObject.categoryIds, e.target.value])
-          }
+          onChange={(e) => handleCategoryChange(e.target.value)}
         />
         <label htmlFor="relaxation">Relaxation</label>
         <label>
@@ -143,16 +129,16 @@ export const CreateEventForm = () => {
           <h2>User</h2>
           <input
             type="radio"
-            name="Ignacio Doe"
+            name="createdBy"
             value={1}
-            onChange={(e) => handleCreatedByChange("createdBy", e.target.value)}
+            onChange={(e) => handleChange("createdBy", e.target.value)}
           />{" "}
           Ignacio Doe
           <input
             type="radio"
-            name="Jane Bennett"
+            name="createdBy"
             value={2}
-            onChange={(e) => handleCreatedByChange("createdBy", e.target.value)}
+            onChange={(e) => handleChange("createdBy", e.target.value)}
           />{" "}
           Jane Bennett
         </label>
