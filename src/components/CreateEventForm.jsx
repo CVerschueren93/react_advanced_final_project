@@ -34,19 +34,17 @@ export const CreateEventForm = () => {
     createdBy: "",
   });
 
-  const handleSubmit = () => {
-     fetch("http://localhost:3000/events", {
+  const handleSubmit = async () => {
+    const response = await fetch("http://localhost:3000/events", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(eventObject),
-    })
-    //.then
-     if (response.ok) {
-     // useNavigate("/events");
-     //}
-     }
-  
-
+    });
+    const json = await response.json();
+    if (response.ok) {
+      useNavigate(`events/${json.id}`);
+    }
+  };
 
   return (
     <div className="new-event">
