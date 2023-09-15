@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Form } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 export const CreateEventForm = () => {
   const [category, setCategory] = useState(false);
@@ -37,7 +38,8 @@ export const CreateEventForm = () => {
     });
     const json = await response.json();
     if (response.ok) {
-      useNavigate(`/events/${json.event.id}`);
+      //useNavigate(`/events/${json.event.id}`);
+      <Navigate to="/events" replace={true} />;
     }
   };
 
