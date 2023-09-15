@@ -5,6 +5,8 @@ import { Popup } from "../components/Popup";
 import { useState } from "react";
 import { SearchBar } from "../components/SearchBar";
 import { SearchResultsList } from "../components/SearchResultsList";
+import { CatSearchBar } from "../components/CatSearchBar";
+import { CatSearchResultsList } from "../components/CatSearchResultsList";
 
 export const loader = async () => {
   const events = await fetch("http://localhost:3000/events");
@@ -18,6 +20,7 @@ export const EventsPage = () => {
   const { events, categories } = useLoaderData();
 
   const [results, setResults] = useState([]);
+  const [resultsCat, setRestultsCat] = useState([]);
 
   return (
     <div className="events-list">
@@ -25,6 +28,10 @@ export const EventsPage = () => {
       <div className="search-bar-container">
         <SearchBar setResults={setResults} />
         <SearchResultsList results={results} />
+      </div>
+      <div className="cat-search-bar-container">
+        <CatSearchBar setResults={setRestultsCat} />
+        <CatSearchResultsList results={resultsCat} />
       </div>
       <button onClick={() => setButtonPopup(true)}>Add Event</button>
       <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
