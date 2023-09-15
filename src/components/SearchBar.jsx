@@ -26,6 +26,7 @@ export const SearchBar = ({ setResults }) => {
   const [input, setInput] = useState("");
   return (
     <div className="input-wrapper">
+      <h2>Search for event:</h2>
       <input
         placeholder="Type to search..."
         value={input}
