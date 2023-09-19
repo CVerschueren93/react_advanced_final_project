@@ -10,14 +10,14 @@ export const CreateEventForm = () => {
   const handleChange = (key, value) =>
     setEventObject({ ...eventObject, [key]: value });
 
-  // const handleCategoryChange = (id) => {
-  // if (eventObject.categoryIds.includes(id)) {
+   const handleCategoryChange = (id) => {
+   if (eventObject.categoryIds.includes(id)) {
   // id uit eventObject.categoryIds halen
-  // ???  setEventObject(eventObject.categoryIds, ?);
-  // } else {
-  // id aan eventObject.categoryIds toevoegen
-  //  ??? setEventObject(eventObject.categoryIds, id)
-  //};
+   ???  setEventObject(eventObject.categoryIds, ?);
+   } else {
+   //id aan eventObject.categoryIds toevoegen
+    ??? setEventObject(eventObject.categoryIds, id)
+  };
 
   const [eventObject, setEventObject] = useState({
     title: "",
