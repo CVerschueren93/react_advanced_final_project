@@ -2,21 +2,28 @@ import React from "react";
 import { useState } from "react";
 import { Form } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { Navigate } from "react-router-dom";
 
 export const CreateEventForm = () => {
-  const [category, setCategory] = useState(false);
+  // const [category, setCategory] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (key, value) =>
     setEventObject({ ...eventObject, [key]: value });
 
-   const handleCategoryChange = (id) => {
-   if (eventObject.categoryIds.includes(id)) {
-  // id uit eventObject.categoryIds halen
-   ???  setEventObject(eventObject.categoryIds, ?);
-   } else {
-   //id aan eventObject.categoryIds toevoegen
-    ??? setEventObject(eventObject.categoryIds, id)
+  const handleCategoryChange = (id) => {
+    if (eventObject.categoryIds.includes(id)) {
+      setEventObject((prevEventObject) => ({
+        ...prevEventObject,
+        categoryIds: prevEventObject.categoryIds.filter(
+          (catId) => catId !== id
+        ),
+      }));
+    } else {
+      setEventObject((prevEventObject) => ({
+        ...prevEventObject,
+        categoryIds: [...prevEventObject.categoryIds, (id = Number(id))],
+      }));
+    }
   };
 
   const [eventObject, setEventObject] = useState({
@@ -38,8 +45,7 @@ export const CreateEventForm = () => {
     });
     const json = await response.json();
     if (response.ok) {
-      //useNavigate(`/events/${json.event.id}`);
-      <Navigate to="/events" replace={true} />;
+      navigate(`/event/${json.id}`);
     }
   };
 
@@ -81,8 +87,8 @@ export const CreateEventForm = () => {
           id="sports"
           name="sports"
           value={1}
-          //onChange={(e) => handleCategoryChange(e.target.value)}
-          onChange={(e) => setCategory(e.target.checked)}
+          onChange={(e) => handleCategoryChange(e.target.value)}
+          // onChange={(e) => setCategory(e.target.checked)}
         />
         <label htmlFor="sports">Sports</label>
         <input
@@ -90,7 +96,8 @@ export const CreateEventForm = () => {
           id="games"
           name="games"
           value={2}
-          onChange={(e) => setCategory(e.target.checked)}
+          onChange={(e) => handleCategoryChange(e.target.value)}
+          //  onChange={(e) => setCategory(e.target.checked)}
         />
         <label htmlFor="games">Games</label>
         <input
@@ -98,7 +105,8 @@ export const CreateEventForm = () => {
           id="relaxation"
           name="relaxation"
           value={3}
-          onChange={(e) => setCategory(e.target.checked)}
+          onChange={(e) => handleCategoryChange.number(e.target.value)}
+          //onChange={(e) => setCategory(e.target.checked)}
         />
         <label htmlFor="relaxation">Relaxation</label>
         <label>
