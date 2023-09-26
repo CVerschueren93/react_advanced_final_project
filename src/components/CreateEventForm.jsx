@@ -4,7 +4,6 @@ import { Form } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 export const CreateEventForm = () => {
-  // const [category, setCategory] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (key, value) =>
@@ -88,7 +87,6 @@ export const CreateEventForm = () => {
           name="sports"
           value={1}
           onChange={(e) => handleCategoryChange(e.target.value)}
-          // onChange={(e) => setCategory(e.target.checked)}
         />
         <label htmlFor="sports">Sports</label>
         <input
@@ -97,7 +95,6 @@ export const CreateEventForm = () => {
           name="games"
           value={2}
           onChange={(e) => handleCategoryChange(e.target.value)}
-          //  onChange={(e) => setCategory(e.target.checked)}
         />
         <label htmlFor="games">Games</label>
         <input
@@ -106,7 +103,6 @@ export const CreateEventForm = () => {
           name="relaxation"
           value={3}
           onChange={(e) => handleCategoryChange.number(e.target.value)}
-          //onChange={(e) => setCategory(e.target.checked)}
         />
         <label htmlFor="relaxation">Relaxation</label>
         <label>
