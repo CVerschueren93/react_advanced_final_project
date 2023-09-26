@@ -11,12 +11,7 @@ export const CatSearchBar = ({ setResultsCat }) => {
             value &&
             event &&
             event.categoryIds &&
-            (event.categoryIds[0] ||
-              event.categoryIds[1] ||
-              event.categoryIds[2]) &&
-            (event.categoryIds[0].number() === value.number() ||
-              event.categoryIds[1].number() === value.number() ||
-              event.categoryIds[2].number() === value.number())
+            event.categoryIds.includes((value = Number(value)))
           );
         });
         setResultsCat(resultsCat);
