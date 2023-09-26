@@ -20,7 +20,7 @@ export const EventsPage = () => {
   const { events, categories } = useLoaderData();
 
   const [results, setResults] = useState([]);
-  const [resultsCat, setRestultsCat] = useState([]);
+  const [resultsCat, setResultsCat] = useState([]);
 
   return (
     <div className="events-list">
@@ -30,7 +30,7 @@ export const EventsPage = () => {
         <SearchResultsList results={results} />
       </div>
       <div className="cat-search-bar-container">
-        <CatSearchBar setResults={setRestultsCat} />
+        <CatSearchBar setResults={setResultsCat} />
         <CatSearchResultsList results={resultsCat} />
       </div>
       <button onClick={() => setButtonPopup(true)}>Add Event</button>
