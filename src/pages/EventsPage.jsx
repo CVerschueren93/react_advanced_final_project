@@ -30,7 +30,7 @@ export const EventsPage = () => {
         <SearchResultsList results={results} />
       </div>
       <div className="cat-search-bar-container">
-        <CatSearchBar setResults={setResultsCat} />
+        <CatSearchBar setResultsCat={setResultsCat} />
         <CatSearchResultsList results={resultsCat} />
       </div>
       <button onClick={() => setButtonPopup(true)}>Add Event</button>
