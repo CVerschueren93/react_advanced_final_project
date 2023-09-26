@@ -37,9 +37,9 @@ export const EventPage = () => {
           </p>
           <p>
             Created by:
-            {users.find((user) => event.createdBy === user.id).name}
+            {users.find((user) => event.createdBy === user.id)?.name}
             <img
-              src={users.find((user) => event.createdBy === user.id).image}
+              src={users.find((user) => event.createdBy === user.id)?.image}
             />
           </p>
         </div>
