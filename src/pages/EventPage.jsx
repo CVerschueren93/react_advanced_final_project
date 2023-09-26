@@ -4,7 +4,7 @@ import { useLoaderData } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
 export const loader = async ({ params }) => {
-  const params = useParams();
+  //const params = useParams();
   const event = await fetch("http://localhost:3000/events/${params.eventId}");
   const categories = await fetch("http://localhost:3000/categories");
   const users = await fetch("http://localhost:3000/users");
