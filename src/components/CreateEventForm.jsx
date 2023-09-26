@@ -145,14 +145,24 @@ export const CreateEventForm = () => {
             type="radio"
             name="createdBy"
             value={1}
-            onChange={(e) => handleChange("createdBy", e.target.value)}
+            onChange={(e) =>
+              handleChange(
+                "createdBy",
+                (e.target.value = Number(e.target.value))
+              )
+            }
           />{" "}
           Ignacio Doe
           <input
             type="radio"
             name="createdBy"
             value={2}
-            onChange={(e) => handleChange("createdBy", e.target.value)}
+            onChange={(e) =>
+              handleChange(
+                "createdBy",
+                (e.target.value = Number(e.target.value))
+              )
+            }
           />{" "}
           Jane Bennett
         </label>
