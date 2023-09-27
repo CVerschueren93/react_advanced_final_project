@@ -36,12 +36,15 @@ export const UpdateEventForm = () => {
     createdBy: [],
   });
 
-  const handleSubmit = async () => {
-    const response = await fetch("http://localhost:3000/events", {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(eventObject),
-    });
+  const handleSubmit = async ({ params }) => {
+    const response = await fetch(
+      `http://localhost:3000/events/${params.eventId}`,
+      {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(eventObject),
+      }
+    );
     const json = await response.json();
     if (response.ok) {
       navigate(`/event/${json.id}`);
@@ -141,28 +144,18 @@ export const UpdateEventForm = () => {
             type="radio"
             name="createdBy"
             value={1}
-            onChange={(e) =>
-              handleChange(
-                "createdBy",
-                (e.target.value = Number(e.target.value))
-              )
-            }
+            onChange={(e) => handleChange("createdBy", e.target.value)}
           />{" "}
           Ignacio Doe
           <input
             type="radio"
             name="createdBy"
             value={2}
-            onChange={(e) =>
-              handleChange(
-                "createdBy",
-                (e.target.value = Number(e.target.value))
-              )
-            }
+            onChange={(e) => handleChange("createdBy", e.target.value)}
           />{" "}
           Jane Bennett
         </label>
-        <button type="submit">Add event</button>
+        <button type="submit">Edit event</button>
       </Form>
     </div>
   );
