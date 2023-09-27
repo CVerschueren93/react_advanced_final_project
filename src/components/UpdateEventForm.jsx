@@ -103,7 +103,7 @@ export const UpdateEventForm = () => {
           id="relaxation"
           name="relaxation"
           value={3}
-          onChange={(e) => handleCategoryChange.number(e.target.value)}
+          onChange={(e) => handleCategoryChange(e.target.value)}
         />
         <label htmlFor="relaxation">Relaxation</label>
         <label>
