@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Form } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useToast } from "@chakra-ui/react";
 
 export const UpdateEventForm = () => {
   const navigate = useNavigate();
@@ -36,15 +37,12 @@ export const UpdateEventForm = () => {
     createdBy: [],
   });
 
-  const handleSubmit = async ({ params }) => {
-    const response = await fetch(
-      `http://localhost:3000/events/${params.eventId}`,
-      {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(eventObject),
-      }
-    );
+  const handleSubmit = async () => {
+    const response = await fetch(`http://localhost:3000/events/eventId}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(eventObject),
+    });
     const json = await response.json();
     if (response.ok) {
       navigate(`/event/${json.id}`);
