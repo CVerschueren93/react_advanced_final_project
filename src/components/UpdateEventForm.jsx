@@ -2,10 +2,22 @@ import React from "react";
 import { useState } from "react";
 import { Form } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { useToast } from "@chakra-ui/react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const UpdateEventForm = ({ event }) => {
   const navigate = useNavigate();
+
+  const successToast = () => {
+    toast.success("Event has been successfully updated", {
+      position: toast.POSITION.TOP_CENTER,
+    });
+  };
+  const errorToast = () => {
+    toast.error("Something went wrong. Please try again", {
+      position: toast.POSITION.TOP_CENTER,
+    });
+  };
 
   const handleChange = (key, value) =>
     setEventObject({ ...eventObject, [key]: value });
@@ -36,7 +48,12 @@ export const UpdateEventForm = ({ event }) => {
     });
     const json = await response.json();
     if (response.ok) {
+      successToast();
+      <ToastContainer />;
       navigate(`/event/${json.id}`);
+    } else {
+      errorToast();
+      <ToastContainer />;
     }
   };
 
