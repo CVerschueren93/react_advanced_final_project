@@ -4,7 +4,7 @@ import { Form } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@chakra-ui/react";
 
-export const UpdateEventForm = () => {
+export const UpdateEventForm = ({ event }) => {
   const navigate = useNavigate();
 
   const handleChange = (key, value) =>
@@ -26,19 +26,10 @@ export const UpdateEventForm = () => {
     }
   };
 
-  const [eventObject, setEventObject] = useState({
-    title: "",
-    description: "",
-    image: "",
-    categoryIds: [],
-    location: "",
-    startTime: "",
-    endTime: "",
-    createdBy: [],
-  });
+  const [eventObject, setEventObject] = useState(event);
 
   const handleSubmit = async () => {
-    const response = await fetch(`http://localhost:3000/events/eventId}`, {
+    const response = await fetch(`http://localhost:3000/events/${event.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(eventObject),
