@@ -1,21 +1,19 @@
 import React from "react";
 import { useState } from "react";
 import { Form } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export const UpdateEventForm = ({ event }) => {
-  const navigate = useNavigate();
-
-  const successToast = () => {
-    toast.success("Event has been successfully updated", {
-      position: toast.POSITION.TOP_CENTER,
-    });
-  };
-  const errorToast = () => {
-    toast.error("Something went wrong. Please try again", {
-      position: toast.POSITION.TOP_CENTER,
+  const Toast = () => {
+    toast.success("Succesfully updated", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
     });
   };
 
@@ -46,15 +44,6 @@ export const UpdateEventForm = ({ event }) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(eventObject),
     });
-    const json = await response.json();
-    if (response.ok) {
-      successToast();
-      <ToastContainer />;
-      navigate(`/event/${json.id}`);
-    } else {
-      errorToast();
-      <ToastContainer />;
-    }
   };
 
   return (
@@ -161,7 +150,10 @@ export const UpdateEventForm = ({ event }) => {
           />{" "}
           Jane Bennett
         </label>
-        <button type="submit">Edit event</button>
+        <button type="submit" onClick={Toast}>
+          <ToastContainer />
+          Edit event
+        </button>
       </Form>
     </div>
   );
