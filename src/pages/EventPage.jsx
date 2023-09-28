@@ -3,6 +3,7 @@ import { Heading } from "@chakra-ui/react";
 import { useLoaderData } from "react-router-dom";
 import { Popup2 } from "../components/Popup2";
 import { useState } from "react";
+import { UpdateEventForm } from "../components/UpdateEventForm";
 
 export const loader = async ({ params }) => {
   const event = await fetch(`http://localhost:3000/events/${params.eventId}`);
@@ -26,6 +27,7 @@ export const EventPage = () => {
       <button onClick={() => setButtonPopup(true)}>Edit Event</button>
       <Popup2 trigger={buttonPopup} setTrigger={setButtonPopup}>
         <h3>Edit Event</h3>
+        <UpdateEventForm event={event} />
       </Popup2>
       <ul>
         <div key={event.id} className="event">
