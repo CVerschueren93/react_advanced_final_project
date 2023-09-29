@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 import { useLoaderData } from "react-router-dom";
 
@@ -10,8 +11,12 @@ export const loader = async ({ params }) => {
   };
 };
 export const DeleteEvent = () => {
+  const navigate = useNavigate();
   const { event } = useLoaderData();
-  fetch(`http://localhost:3000/events/${event.id}`, {
+  const response = fetch(`http://localhost:3000/events/${event.id}`, {
     method: "DELETE",
   });
+  if (response.ok) {
+    navigate(`/events`);
+  }
 };
