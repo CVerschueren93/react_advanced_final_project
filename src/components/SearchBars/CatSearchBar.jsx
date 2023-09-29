@@ -1,5 +1,6 @@
 import { useState } from "react";
 import React from "react";
+import "./CatSearchBar.css";
 
 export const CatSearchBar = ({ setResultsCat }) => {
   const fetchData = (value) => {
@@ -25,7 +26,7 @@ export const CatSearchBar = ({ setResultsCat }) => {
 
   const [input, setInput] = useState("");
   return (
-    <div className="input-wrapper">
+    <div className="input-wrapper-cat">
       <h2>Search for event based on category:</h2>
       <p>Type 1 for sports</p>
       <p>Type 2 for games</p>
