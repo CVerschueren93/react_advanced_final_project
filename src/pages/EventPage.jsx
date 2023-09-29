@@ -1,10 +1,10 @@
 import React from "react";
 import { Heading } from "@chakra-ui/react";
 import { useLoaderData } from "react-router-dom";
-import { Popup2 } from "../components/SearchBars/Popups/Popup2";
+import { Popup2 } from "../components/Popups/Popup2";
 import { useState } from "react";
 import { UpdateEventForm } from "../components/Forms/UpdateEventForm";
-import { Popup3 } from "../components/SearchBars/Popups/Popup3";
+import { Popup3 } from "../components/Popups/Popup3";
 
 export const loader = async ({ params }) => {
   const event = await fetch(`http://localhost:3000/events/${params.eventId}`);

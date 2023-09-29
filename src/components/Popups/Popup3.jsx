@@ -1,6 +1,6 @@
 import React from "react";
 import "./Popup3.css";
-import { DeleteEvent } from "../../DeleteEvent";
+import { DeleteEvent } from "../DeleteEvent";
 
 export function Popup3(props) {
   return props.trigger ? (

@@ -1,6 +1,6 @@
 import React from "react";
 import "./Popup.css";
-import { CreateEventForm } from "../../Forms/CreateEventForm";
+import { CreateEventForm } from "../Forms/CreateEventForm";
 
 export function Popup(props) {
   return props.trigger ? (

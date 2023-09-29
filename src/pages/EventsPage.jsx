@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useLoaderData } from "react-router-dom";
-import { Popup } from "../components/Popup";
+import { Popup } from "../components/Popups/Popup";
 import { useState } from "react";
-import { SearchBar } from "../components/SearchBar";
+import { SearchBar } from "../components/SearchBars/SearchBar";
 import { SearchResultsList } from "../components/SearchResultsList";
-import { CatSearchBar } from "../components/CatSearchBar";
+import { CatSearchBar } from "../components/SearchBars/CatSearchBar";
 import { CatSearchResultsList } from "../components/CatSearchResultsList";
 
 export const loader = async () => {
