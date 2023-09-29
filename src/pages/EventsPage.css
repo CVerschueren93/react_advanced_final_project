@@ -19,6 +19,10 @@
   justify-content: center;
   gap: 3vh;
   margin-bottom: 3vh;
+  border-width: 2px;
+  border-color: hsl(240, 73%, 0%);
+  border-radius: 5px;
+  background-color: hsl(240, 73%, 100%);
 }
 
 .add-event {
@@ -27,4 +31,20 @@
   font-size: 1.5vw;
   font-weight: bold;
   text-decoration-line: underline;
+}
+
+.information {
+  display: flex;
+  flex-direction: column;
+  background-color: hsl(240, 73%, 100%);
+}
+
+.image {
+  width: 40vw;
+  height: 25vw;
+}
+
+.information h2 {
+  font-size: 20px;
+  font-weight: bold;
 }

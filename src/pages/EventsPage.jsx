@@ -45,7 +45,9 @@ export const EventsPage = () => {
         {events.map((event) => (
           <div key={event.id} className="event">
             <Link to={`event/${event.id}`}>
-              <img src={event.image} />
+              <img className="image" src={event.image} />
+            </Link>
+            <div className="information">
               <h2>{event.title}</h2>
               <p>{event.description}</p>
               <p>Start time: {event.startTime}</p>
@@ -60,7 +62,7 @@ export const EventsPage = () => {
                   )
                   .map((category) => " " + category.name + " ")}
               </p>
-            </Link>
+            </div>
           </div>
         ))}
       </ul>
