@@ -21,12 +21,11 @@ const router = createBrowserRouter([
         path: "/event/:eventId",
         element: <EventPage />,
         loader: eventDetailsLoader,
-        // action: addComment,
       },
     ],
   },
 ]);
-// @ts-ignore
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ChakraProvider>
