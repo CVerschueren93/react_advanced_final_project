@@ -4,6 +4,7 @@ import { useLoaderData } from "react-router-dom";
 import { Popup2 } from "../components/Popup2";
 import { useState } from "react";
 import { UpdateEventForm } from "../components/UpdateEventForm";
+import { Popup3 } from "../components/Popup3";
 
 export const loader = async ({ params }) => {
   const event = await fetch(`http://localhost:3000/events/${params.eventId}`);
@@ -29,6 +30,8 @@ export const EventPage = () => {
         <h3>Edit Event</h3>
         <UpdateEventForm event={event} />
       </Popup2>
+      <button onClick={() => setButtonPopup(true)}>Delete Event</button>
+      <Popup3 trigger={buttonPopup} setTrigger={setButtonPopup}></Popup3>
       <ul>
         <div key={event.id} className="event">
           <img src={event.image} />
