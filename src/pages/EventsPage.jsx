@@ -35,7 +35,9 @@ export const EventsPage = () => {
         <CatSearchBar setResultsCat={setResultsCat} />
         <CatSearchResultsList results={resultsCat} />
       </div>
-      <button onClick={() => setButtonPopup(true)}>Add Event</button>
+      <button className="add-event" onClick={() => setButtonPopup(true)}>
+        Add Event
+      </button>
       <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
         <h3>Create Event</h3>
       </Popup>
