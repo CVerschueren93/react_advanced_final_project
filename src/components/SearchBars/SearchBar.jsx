@@ -1,5 +1,6 @@
 import { useState } from "react";
 import React from "react";
+import "./SearchBar.css";
 
 export const SearchBar = ({ setResults }) => {
   const fetchData = (value) => {
