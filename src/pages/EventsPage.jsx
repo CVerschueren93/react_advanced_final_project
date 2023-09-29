@@ -7,6 +7,7 @@ import { SearchBar } from "../components/SearchBars/SearchBar";
 import { SearchResultsList } from "../components/SearchResultsList";
 import { CatSearchBar } from "../components/SearchBars/CatSearchBar";
 import { CatSearchResultsList } from "../components/CatSearchResultsList";
+import "./EventsPage.css";
 
 export const loader = async () => {
   const events = await fetch("http://localhost:3000/events");
@@ -24,7 +25,8 @@ export const EventsPage = () => {
 
   return (
     <div className="events-list">
-      <h1>List of events</h1>
+      <h1>Upcoming Events</h1>
+
       <div className="search-bar-container">
         <SearchBar setResults={setResults} />
         <SearchResultsList results={results} />
