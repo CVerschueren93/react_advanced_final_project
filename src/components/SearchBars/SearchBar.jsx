@@ -27,8 +27,9 @@ export const SearchBar = ({ setResults }) => {
   const [input, setInput] = useState("");
   return (
     <div className="input-wrapper">
-      <h2>Search for event based on title:</h2>
+      <h2>Search for event title:</h2>
       <input
+        className="input-searchbar"
         placeholder="Type to search..."
         value={input}
         onChange={(e) => handleChange(e.target.value)}

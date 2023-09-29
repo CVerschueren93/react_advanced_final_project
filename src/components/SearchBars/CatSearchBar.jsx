@@ -27,11 +27,12 @@ export const CatSearchBar = ({ setResultsCat }) => {
   const [input, setInput] = useState("");
   return (
     <div className="input-wrapper-cat">
-      <h2>Search for event based on category:</h2>
+      <h2>Search for event category:</h2>
       <p>Type 1 for sports</p>
       <p>Type 2 for games</p>
       <p>Type 3 for relaxation</p>
       <input
+        className="input-searchbar-cat"
         placeholder="Type to search..."
         value={input}
         onChange={(e) => handleChange(e.target.value)}
