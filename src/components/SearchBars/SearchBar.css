@@ -1,0 +1,15 @@
+.input-wrapper {
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin-bottom: 5px;
+  margin-top: 20px;
+}
+
+input {
+  border-width: 3px;
+  border-color: hsl(240, 73%, 51%);
+  padding: 3px;
+  width: 40vw;
+}
