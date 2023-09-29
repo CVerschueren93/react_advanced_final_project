@@ -1,5 +1,6 @@
 import React from "react";
 import "./Popup3.css";
+import { DeleteEvent } from "./DeleteEvent";
 
 export function Popup3(props) {
   return props.trigger ? (
@@ -13,7 +14,7 @@ export function Popup3(props) {
         </button>
         {props.children}
         <p>Are you sure you want to delete this event?</p>
-        <button>Confirm</button>
+        <button onClick={DeleteEvent()}>Confirm</button>
       </div>
     </div>
   ) : (
