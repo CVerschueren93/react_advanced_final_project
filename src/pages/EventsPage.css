@@ -19,3 +19,11 @@
   gap: 3vh;
   margin-bottom: 3vh;
 }
+
+.add-event {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 1.5vw;
+  font-weight: bold;
+  text-decoration-line: underline;
+}
