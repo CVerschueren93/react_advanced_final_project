@@ -1,0 +1,56 @@
+.event-details {
+  background-color: hsl(189, 100%, 88%);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.event-details h1 {
+  font-size: 8vw;
+  color: hsl(240, 73%, 51%);
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.edit-event {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 1.5vw;
+  font-weight: bold;
+  text-decoration-line: underline;
+}
+
+.delete-event {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 1.5vw;
+  font-weight: bold;
+  text-decoration-line: underline;
+}
+
+.event-info .image {
+  width: 60vw;
+  height: 30vw;
+}
+.event-info .image-user {
+  width: 20vw;
+  height: 20vw;
+  border-radius: 200px;
+  margin-left: 30px;
+  margin-bottom: 20px;
+}
+
+.event-info {
+  display: flex;
+  flex-direction: column;
+  border-width: 2px;
+  border-color: hsl(240, 73%, 0%);
+  border-radius: 5px;
+  background-color: hsl(240, 73%, 100%);
+}
+
+.event-info .header-two {
+  font-weight: bold;
+  font-size: 3vw;
+}
