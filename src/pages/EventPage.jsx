@@ -33,7 +33,10 @@ export const EventPage = () => {
         <h3>Edit Event</h3>
         <UpdateEventForm event={event} />
       </Popup2>
-      <button className="delete-event" onClick={() => setButtonPopup(true)}>
+      <button
+        className="delete-event"
+        onClick={() => setButtonPopupDelete(true)}
+      >
         Delete Event
       </button>
       <Popup3
