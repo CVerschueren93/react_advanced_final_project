@@ -21,6 +21,7 @@ export const loader = async ({ params }) => {
 export const EventPage = () => {
   const { event, categories, users } = useLoaderData();
   const [buttonPopup, setButtonPopup] = useState(false);
+  const [buttonPopupDelete, setButtonPopupDelete] = useState(false);
 
   return (
     <div className="event-details">
@@ -35,7 +36,10 @@ export const EventPage = () => {
       <button className="delete-event" onClick={() => setButtonPopup(true)}>
         Delete Event
       </button>
-      <Popup3 trigger={buttonPopup} setTrigger={setButtonPopup}></Popup3>
+      <Popup3
+        trigger={buttonPopupDelete}
+        setTrigger={setButtonPopupDelete}
+      ></Popup3>
       <ul>
         <div key={event.id} className="event-info">
           <img className="image" src={event.image} />
