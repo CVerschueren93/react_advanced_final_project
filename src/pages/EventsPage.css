@@ -16,7 +16,7 @@
 .event {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 3vh;
   margin-bottom: 3vh;
   border-width: 2px;
