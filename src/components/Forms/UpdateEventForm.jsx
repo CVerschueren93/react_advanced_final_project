@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Form } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "./UpdateEventForm.css";
 
 export const UpdateEventForm = ({ event }) => {
   const Toast = () => {
