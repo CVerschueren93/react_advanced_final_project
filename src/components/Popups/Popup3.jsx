@@ -1,24 +1,18 @@
 import React from "react";
 import "./Popup3.css";
-import { useNavigate } from "react-router-dom";
-import { useLoaderData } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export function Popup3(props) {
   const navigate = useNavigate();
-  const loader = async ({ params }) => {
-    const event = await fetch(`http://localhost:3000/events/${params.eventId}`);
 
-    return {
-      event: await event.json(),
-    };
-  };
+  const { eventId } = useParams();
+
   const DeleteEvent = async () => {
-    const { event } = useLoaderData();
-    const response = await fetch(`http://localhost:3000/events/${event.id}`, {
+    const response = await fetch(`http://localhost:3000/events/${eventId}`, {
       method: "DELETE",
     });
     if (response.ok) {
-      navigate(`/events`);
+      navigate(`/`);
     }
   };
 
