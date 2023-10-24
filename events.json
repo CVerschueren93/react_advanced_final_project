@@ -1,0 +1,70 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Ignacio Doe",
+      "image": "https://global-uploads.webflow.com/5eecfecbe625d195e35b89f2/624bfb093da7d92733c001c0_Ignacio%20Villafruela%20Rodr%C3%ADguez.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Jane Bennett",
+      "image": "https://global-uploads.webflow.com/5eecfecbe625d195e35b89f2/624bfb401d7131c760ca1c63_Elieska%20Lensink.jpg"
+    }
+  ],
+  "events": [
+    {
+      "title": "Fishing ducks",
+      "description": "Let's fish for ducks!",
+      "image": "https://www.attractiewinkel.nl/wp-content/uploads/Attractiewinkel-Eendjes-vangen-Etten-Leur.jpg",
+      "categoryIds": [
+        2,
+        2
+      ],
+      "location": "Garden",
+      "startTime": "19:00",
+      "endTime": "22:00",
+      "createdBy": "1",
+      "id": 5
+    },
+    {
+      "title": "Glowgolf",
+      "description": "glow in the dark",
+      "image": "https://glowgolf.nl/site/assets/files/8666/20230202_164043.jpg",
+      "categoryIds": [
+        2
+      ],
+      "location": "GlowGolf",
+      "startTime": "19:00",
+      "endTime": "22:00",
+      "createdBy": 1,
+      "id": 6
+    },
+    {
+      "title": "Rope Jumping",
+      "description": "Let's jump the rope together!",
+      "image": "https://womanitely.com/wp-content/uploads/2017/04/Jumping-Rope.jpg",
+      "categoryIds": [
+        1
+      ],
+      "location": "Sportshall",
+      "startTime": "19:00",
+      "endTime": "22:00",
+      "createdBy": 2,
+      "id": 7
+    }
+  ],
+  "categories": [
+    {
+      "name": "sports",
+      "id": 1
+    },
+    {
+      "name": "games",
+      "id": 2
+    },
+    {
+      "name": "relaxation",
+      "id": 3
+    }
+  ]
+}
